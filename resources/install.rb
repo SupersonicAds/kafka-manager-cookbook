@@ -1,5 +1,6 @@
 resource_name :kafka_manager
 property :repo, String, default: 'spuder/kafka-manager'
+property :cookbook, String, default: 'kafka-manager'
 property :package_version, String, default: '1.2.7' #1.2.8 and newer don't scale well with large clusters https://github.com/yahoo/kafka-manager/issues/162
 
 action :install do
@@ -37,6 +38,7 @@ action :install do
   when 'debian'
     cookbook_file '/etc/init/kafka-manager.conf' do
       source 'upstart/kafka-manager.conf'
+      cookbook "#{cookbook}"
       owner 'root'
       group 'root'
       mode 00644
