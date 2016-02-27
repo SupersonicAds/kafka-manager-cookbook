@@ -71,7 +71,7 @@ service 'kafka-manager' do
 end
 ```
 If using a wrapper cookbook, you could use search to automatically fetch the zookeeper hosts from the chef server
-
+If you'd like to keep configuration template and init file in your cookbook and cutomize them per own needs override ['kafka-manager']['cookbook_source'] attribute.
 
 By default kafka-manager runs on port 9000. You may want to setup a reverse proxy to redirect requests from port 80
 A recipe and a custom resource are provided that will install nginx and setup the redirect.
