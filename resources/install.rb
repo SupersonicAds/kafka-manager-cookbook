@@ -38,7 +38,7 @@ action :install do
   when 'debian'
     cookbook_file '/etc/init/kafka-manager.conf' do
       source 'upstart/kafka-manager.conf'
-      cookbook "#{cookbook}"
+      cookbook_name "#{cookbook}"
       owner 'root'
       group 'root'
       mode 00644
