@@ -6,6 +6,7 @@
 
 kafka_manager 'default' do
   package_version "#{node['kafka-manager']['version']}"
+  cookbook node['kafka-manager']['template_source']
   action :install
 end
 
