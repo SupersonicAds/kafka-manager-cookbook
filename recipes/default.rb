@@ -15,6 +15,7 @@ template '/usr/share/kafka-manager/conf/application.conf' do
     :zkhosts => "#{node['kafka-manager']['zkhosts']}"
   })
   notifies :restart, 'service[kafka-manager]'
+  cookbook node['kafka-manager']['template_source']
 end
 
 service 'kafka-manager' do
