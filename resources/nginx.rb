@@ -10,6 +10,7 @@ action :create do
   template '/etc/nginx/sites-available/kafka-manager' do
     source 'nginx.erb'
     notifies :restart, 'service[nginx]'
+    cookbook node['kafka-manager']['cookbook_source']
   end
 
   link '/etc/nginx/sites-enabled/kafka-manager' do
